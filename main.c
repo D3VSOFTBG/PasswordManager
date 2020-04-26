@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hello, World!\n");
+    printf("Welcome to password manager!\n");
+    printf("Developer: Tarak Mustafa (D3VBG)");
     return 0;
 }
