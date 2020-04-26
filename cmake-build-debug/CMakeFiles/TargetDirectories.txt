@@ -1,0 +1,3 @@
+/home/d3vbg/CLionProjects/PasswordManager/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/d3vbg/CLionProjects/PasswordManager/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/d3vbg/CLionProjects/PasswordManager/cmake-build-debug/CMakeFiles/PasswordManager.dir
