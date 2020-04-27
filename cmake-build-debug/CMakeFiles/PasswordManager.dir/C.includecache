@@ -9,4 +9,10 @@
 /home/d3vbg/CLionProjects/PasswordManager/main.c
 stdio.h
 -
+string.h
+-
+stdlib.h
+-
+sqlite3.h
+-
 
