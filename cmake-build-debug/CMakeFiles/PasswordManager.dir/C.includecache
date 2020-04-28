@@ -15,4 +15,6 @@ stdlib.h
 -
 sqlite3.h
 -
+stdbool.h
+-
 

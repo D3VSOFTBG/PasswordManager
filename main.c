@@ -33,6 +33,8 @@ int main() {
             printf("install - installs the requirements for password manager\n");
             printf("setup - creating a database\n");
             printf("add - to add new website and password\n");
+            printf("update - to update password\n");
+            printf("delete - to remove data from database\n");
         } else if (strcmp(cmd, "install") == 0) {
             system("sudo apt-get update");
             system("sudo apt-get upgrade");
