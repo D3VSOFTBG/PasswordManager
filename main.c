@@ -47,9 +47,9 @@ int main() {
             }
 
             sql = "CREATE TABLE PASSWORDS("  \
-        "ID INTEGER PRIMARY KEY AUTOINCREMENT," \
-        "WEBSITE        CHAR(2000)," \
-        "PASSWORD         CHAR(50) );";
+            "ID INTEGER PRIMARY KEY AUTOINCREMENT," \
+            "WEBSITE        CHAR(2000)," \
+            "PASSWORD         CHAR(50) );";
 
             connect = sqlite3_exec(db, sql, callback, 0, &ErrorMessage);
 
@@ -106,7 +106,7 @@ int main() {
                 fprintf(stderr, "SQL error: %s\n", ErrorMessage);
                 sqlite3_free(ErrorMessage);
             } else {
-                fprintf(stdout, "Operation done successfully\n");
+                fprintf(stdout, "Opened database successfully\n");
             }
             sqlite3_close(db);
         } else if (strcmp(cmd, "update") == 0) {
@@ -139,6 +139,30 @@ int main() {
                 fprintf(stdout, "Operation done successfully\n");
             }
             sqlite3_close(db);
+        }else if(strcmp(cmd, "delete") == 0){
+            char id[50];
+            printf("Which ID?: ");
+            scanf("%s", id);
+
+            if (connect){
+                fprintf(stderr, "Cant open database: %s\n", sqlite3_errmsg(db));
+                return (0);
+            }else{
+                fprintf(stderr, "Opened database successfully\n");
+            }
+            char DeleteSql[128];
+
+            sprintf(DeleteSql, "DELETE FROM PASSWORDS WHERE ID=%s;",id);
+
+            connect = sqlite3_exec(db, DeleteSql, callback, (void*)data, &ErrorMessage);
+
+            if(connect != SQLITE_OK){
+                fprintf(stderr, "SQL error: %s\n", ErrorMessage);
+                sqlite3_free(ErrorMessage);
+            }else{
+                fprintf(stdout, "Operation done successfully\n");
+            }
+            sqlite3_close(db);
         }
-    }
+    }//while shit
 }
