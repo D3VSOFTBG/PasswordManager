@@ -100,9 +100,11 @@ int main() {
             }
 
 
-            sql = "SELECT * FROM PASSWORDS";
+            char GetSql[128];
 
-            connect = sqlite3_exec(db, sql, callback, (void *) data, &ErrorMessage);
+            sprintf(GetSql, "SELECT * FROM PASSWORDS");
+
+            connect = sqlite3_exec(db, GetSql, callback, (void *) data, &ErrorMessage);
 
             if (connect != SQLITE_OK) {
                 fprintf(stderr, "SQL error: %s\n", ErrorMessage);
