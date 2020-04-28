@@ -85,6 +85,27 @@ int main() {
             fprintf(stdout, "password for %s saved in database\n", website);
         }
         sqlite3_close(db);
+    }else if(strcmp(cmd, "get") == 0){
+        if(connect){
+            fprintf(stderr, "Cant open database: %s\n", sqlite3_errmsg(db));
+            return (0);
+        }else{
+            fprintf(stderr, "Opened database successfully\n");
+        }
+
+        const char* data = "Callback function called";
+
+        sql = "SELECT * FROM PASSWORDS";
+
+        connect = sqlite3_exec(db,sql,callback,(void*)data, &ErrorMessage);
+
+        if (connect != SQLITE_OK){
+            fprintf(stderr, "SQL error: %s\n", ErrorMessage);
+            sqlite3_free(ErrorMessage);
+        }else{
+            fprintf(stdout, "Operation done successfully\n");
+        }
+        sqlite3_close(db);
     }
     return 0;
 }
